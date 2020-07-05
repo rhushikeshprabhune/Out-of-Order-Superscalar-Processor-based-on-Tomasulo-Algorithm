@@ -35,7 +35,7 @@ class L2CACHE
 		unsigned int BLOCKSIZE, L2_SIZE, L2_ASSOC, sets, bo, indexsizeL2, tagsizeL2, setsL2;
 	int L2_latency;
 	unsigned int readsL2, writesL2, read_missesL2, write_missesL2, write_backsL2, sector_miss, block_miss;
-	table ** ArrL2; //Two dimentional array to hold the index values which will point to the blocks in that index
+	table** ArrL2; //Two dimentional array to hold the index values which will point to the blocks in that index
 
 
 	L2CACHE(unsigned int c_BLOCKSIZE, unsigned int c_L2_SIZE, unsigned int c_L2_ASSOC)
@@ -58,7 +58,7 @@ class L2CACHE
 			sector_miss = 0;
 			block_miss = 0;
 			L2_latency = 0;
-			ArrL2 = new table * [sets]; //Define the two dimentional array
+			ArrL2 = new table* [sets]; //Define the two dimentional array
 			for (unsigned int i = 0; i < sets; i++)
 				ArrL2[i] = new table[L2_ASSOC];
 
@@ -84,7 +84,7 @@ class L2CACHE
 class L1CACHE
 {
 	public:
-		unsigned int BLOCKSIZE, L1_SIZE, L1_ASSOC, sets, block, bo, indexsize, tagsize;
+	unsigned int BLOCKSIZE, L1_SIZE, L1_ASSOC, sets, block, bo, indexsize, tagsize;
 	int L1_latency;
 	unsigned int reads, writes, read_misses, write_misses, write_backs;
 	L2CACHE * next; //Next level cache
@@ -110,9 +110,11 @@ class L1CACHE
 			write_misses = 0;
 			write_backs = 0;
 			L1_latency = 0;
-			Arr = new table * [sets]; //Define the two dimentional array
+			Arr = new table* [sets]; //Define the two dimentional array
 			for (unsigned int i = 0; i < sets; i++)
+			{
 				Arr[i] = new table[L1_ASSOC];
+			}
 
 			for (unsigned int i = 0; i < sets; i++)
 			{
